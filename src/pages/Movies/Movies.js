@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import { Input, Form, Button } from './Movies.styled';
-import { Name, TrendMoviesItem, TrendMoviesList } from 'pages/Home/Home.styled';
+import { Name, MoviesItem, MoviesList } from 'pages/Home/Home.styled';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -70,9 +70,9 @@ const Movies = () => {
         />
         <Button type="submit">Search</Button>
       </Form>
-      <TrendMoviesList>
+      <MoviesList>
         {movies.map(({ id, title, poster_path }) => (
-          <TrendMoviesItem key={id}>
+          <MoviesItem key={id}>
             <Link to={`${id}`} state={{ from: location }}>
               {poster_path ? (
                 <img
@@ -81,13 +81,18 @@ const Movies = () => {
                   width="250"
                 />
               ) : (
-                <img src={defaultPicture} alt={title} width="250" height='375'/>
+                <img
+                  src={defaultPicture}
+                  alt={title}
+                  width="250"
+                  height="375"
+                />
               )}
               <Name>{title}</Name>
             </Link>
-          </TrendMoviesItem>
+          </MoviesItem>
         ))}
-      </TrendMoviesList>
+      </MoviesList>
     </>
   );
 };

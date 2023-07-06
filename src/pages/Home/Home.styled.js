@@ -6,14 +6,14 @@ export const HomeTitle = styled.h2`
   font-size: 36px;
 `;
 
-export const TrendMoviesList = styled.ul`
+export const MoviesList = styled.ul`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 15px;
 `;
 
-export const TrendMoviesItem = styled.li`
+export const MoviesItem = styled.li`
   width: 250px;
 `;
 

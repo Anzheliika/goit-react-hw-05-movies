@@ -1,12 +1,7 @@
 import { getTrendMovies } from 'services/api';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import {
-  HomeTitle,
-  Name,
-  TrendMoviesItem,
-  TrendMoviesList,
-} from './Home.styled';
+import { HomeTitle, Name, MoviesItem, MoviesList } from './Home.styled';
 
 
 const Home = () => {
@@ -20,9 +15,9 @@ const Home = () => {
   return (
     <>
       <HomeTitle>Trending today</HomeTitle>
-      <TrendMoviesList>
+      <MoviesList>
         {trendMovies.map(({ id, title, poster_path }) => (
-          <TrendMoviesItem key={id}>
+          <MoviesItem key={id}>
             <Link to={`movies/${id}`} state={{ from: location }}>
               <img
                 src={`https://image.tmdb.org/t/p/w500${poster_path}`}
@@ -31,9 +26,9 @@ const Home = () => {
               />
               <Name>{title}</Name>
             </Link>
-          </TrendMoviesItem>
+          </MoviesItem>
         ))}
-      </TrendMoviesList>
+      </MoviesList>
     </>
   );
 };
